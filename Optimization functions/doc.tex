@@ -1,0 +1,629 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{geometry}
+
+\geometry{margin=1in}
+
+\title{Unconstrained Minimization Problems}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+
+This document presents the optimization of various unconstrained minimization problems. The optimization algorithms used include [mention the algorithms you are using, e.g., gradient descent, Newton's method, etc.].
+
+\section*{Optimization Problems}
+
+\subsection*{Helical Valley Function (7)}
+
+\subsubsection*{Objective Function}
+\[
+f(x, y, z) = 100*(z-10atan2(y,x))^2 + (\sqrt{x^2+y^2}-1)^2+z^2 % Provide the function
+\]
+This is a function of three variables and have some trigonometric functions.
+\subsubsection*{Optimization Results}
+% Discuss optimization details, such as initial guess, convergence, etc.
+
+To optimize the function we need to find the values of x,y,z
+z that minimize or maximize the function. Optimization involves finding critical points where the partial derivatives of the function are equal to zero or undefined. These critical points can be minima, maxima, or saddle points.
+
+The partial derivatives of f with respect to x, y, and z are given by:
+$$ f(x,y,z) = 100*(z-10atan2(y,x))^2 + (\sqrt{x^2+y^2}-1)^2+z^2 $$
+$$ \frac{\partial f}{\partial x}\:=\:\frac{2000y\left(z-10atan2\left(y,x\right)\right)}{x^2+y^2}+\frac{2\left(\sqrt{x^2+y^2}-1\right)x}{\sqrt{x^2+y^2}}$$
+$$ \frac{\partial f}{\partial y}\:=-\frac{2000\cdot \left(z-10atan2\left(y,x\right)\right)x}{x^2+y^2}+\frac{2\left(\sqrt{x^2+y^2}-1\right)y}{\sqrt{x^2+y^2}}$$
+$$ \frac{\partial f}{\partial y}\:=-\frac{2000\cdot \left(z-10atan2\left(y,x\right)\right)x}{x^2+y^2}+\frac{2\left(\sqrt{x^2+y^2}-1\right)y}{\sqrt{x^2+y^2}}$$
+\\
+$$\frac{\partial f}{\partial z}\:=200\left(z-10atan2\left(y,x\right)\right)+2z$$
+
+
+It looks like you've found the optimal solution for your function 
+[1.00000000e+00,3.25151277e-14,6.60698054e-14], and the corresponding optimal function value is 
+4.525713535408354e-26
+4.525713535408354e-26.
+x0 was (-1,0,0)
+This result indicates that at the point 
+(1.00000000e+00,3.25151277e-14,6.60698054e-14)
+, the function f reaches its minimum value of approximately 4.525713535408354e-26
+4.525713535408354e-26. This is a very close-to-zero value, suggesting that the function is essentially at its global minimum at this point.
+and 2 iterations
+known minimum is (1,0,0)
+It's important to note that the quality of the optimization result can be influenced by the optimization algorithm used, as well as the initial values chosen for the variables 
+ 
+
+\subsection*{Biggs EXP6 Function (18)}
+\subsubsection*{Objective Function}
+
+To minimize the given function, biggs exp6 function, you can employ optimization techniques to find the values of the variable x that minimize the overall sum of squared differences between the expression 
+exp
+
+\[ f(x, t, y) = \sum_{i=1}^{n} (\exp(-t_i \cdot x_i) - y_i)^2 \]
+
+exp(-t*x) and the target values y. One commonly used approach is to use optimization algorithms, such as gradient descent or other numerical optimization methods.
+\[ \frac{\partial f}{\partial x_i} = -2 \sum_{i=1}^{n} t_i \cdot \exp(-t_i \cdot x_i) \cdot (\exp(-t_i \cdot x_i) - y_i) \]
+
+
+\subsubsection*{Optimization Results}
+\[ \frac{\partial f}{\partial x_i} = -2 \sum_{i=1}^{n} t_i \cdot \exp(-t_i \cdot x_i) \cdot (\exp(-t_i \cdot x_i) - y_i) \]
+
+\[ H_{ij} = 2 \sum_{k=1}^{n} t_k^2 \cdot \exp(-t_k \cdot x_k) \cdot (\exp(-t_k \cdot x_k) - y_k) \cdot \delta_{ij} + 2 \sum_{k=1}^{n} t_k^2 \cdot \exp(-t_k \cdot x_k) \cdot (\exp(-t_k \cdot x_k) - y_k)^2 \cdot \exp(-t_k \cdot x_i - t_k \cdot x_j) \]
+
+x0 was: [1. 2. 1. 1. 1. 1.]
+minimum was also [1. 2. 1. 1. 1. 1.] had 0 itera
+It looks like you have provided the optimal solution and the optimal function value for the given Biggs EXP6 function. The optimal solution is a vector 
+
+, and the corresponding optimal function value is approximately 
+48.74
+
+\
+\subsection*{Gaussian Function (9)}
+% ...
+In the context of optimization, it might be used as a component of a larger optimization problem or as a simple test case.
+\subsubsection*{Objective Function}
+\[f(x) = \sum_{i=1}^{7} \left( x_0 \cdot \exp\left(-\frac{x_1}{2} \cdot (t_{1,i} - x_2)^2\right) - y_i \right)^2 + \sum_{i=1}^{7} \left( x_0 \cdot \exp\left(-\frac{x_1}{2} \cdot (t_{2,i} - x_2)^2\right) - y_i \right)^2 + \left( x_0 \cdot \exp\left(-\frac{x_1}{2} \cdot x_2^2\right) - 0.3989 \right)^2
+ \]
+\subsection{Optimization results}
+$$\nabla f = \begin{bmatrix}
+2 \sum_{i=1}^{7} \left( x_0 \cdot \exp\left(-\frac{x_1}{2} \cdot (t_{1,i} - x_2)^2\right) - y_i \right) \cdot \exp\left(-\frac{x_1}{2} \cdot (t_{1,i} - x_2)^2\right) \\
+2x_0 \left( \sum_{i=1}^{7} (t_{1,i} - x_2)^2 \cdot \exp\left(-\frac{x_1}{2} \cdot (t_{1,i} - x_2)^2\right) + \sum_{i=1}^{7} (t_{2,i} - x_2)^2 \cdot \exp\left(-\frac{x_1}{2} \cdot (t_{2,i} - x_2)^2\right) + x_2^2 \cdot \exp\left(-\frac{x_1}{2} \cdot x_2^2\right) \right) \\
+-2x_0 \cdot x_1 \left( \sum_{i=1}^{7} (t_{1,i} - x_2) \cdot \exp\left(-\frac{x_1}{2} \cdot (t_{1,i} - x_2)^2\right) + \sum_{i=1}^{7} (t_{2,i} - x_2) \cdot \exp\left(-\frac{x_1}{2} \cdot (t_{2,i} - x_2)^2\right) + x_2 \cdot \exp\left(-\frac{x_1}{2} \cdot x_2^2\right) \right)
+\end{bmatrix}
+$$
+
+The value of the Gaussian function is: 0.10207049569085339
+Optimal x: [0.52388083 0.7058404  0.48088152]
+Minimum value of the function: 0.0014489424560909297
+x0:(0.4,1,0)
+Iterations: 11
+
+$$H = \begin{bmatrix}
+2 \sum_{i=1}^{7} \exp\left(-\frac{x_1}{2} \cdot (t_{1,i} - x_2)^2\right) & 2x_0 \left( \sum_{i=1}^{7} (t_{1,i} - x_2)^2 \cdot \exp\left(-\frac{x_1}{2} \cdot (t_{1,i} - x_2)^2\right) + \sum_{i=1}^{7} (t_{2,i} - x_2)^2 \cdot \exp\left(-\frac{x_1}{2} \cdot (t_{2,i} - x_2)^2\right) + x_2^2 \cdot \exp\left(-\frac{x_1}{2} \cdot x_2^2\right) \\
+2x_0 \left( \sum_{i=1}^{7} (t_{1,i} - x_2)^2 \cdot \exp\left(-\frac{x_1}{2} \cdot (t_{1,i} - x_2)^2\right) + \sum_{i=1}^{7} (t_{2,i} - x_2)^2 \cdot \exp\left(-\frac{x_1}{2} \cdot (t_{2,i} - x_2)^2\right) + x_2^2 \cdot \exp\left(-\frac{x_1}{2} \cdot x_2^2\right) \right) & 2x_0x_1 \left( \sum_{i=1}^{7} (t_{1,i} - x_2) \cdot \exp\left(-\frac{x_1}{2} \cdot (t_{1,i} - x_2)^2\right) + \sum_{i=1}^{7} (t_{2,i} - x_2) \cdot \exp\left(-\frac{x_1}{2} \cdot (t_{2,i} - x_2)^2\right) + x_2 \cdot \exp\left(-\frac{x_1}{2} \cdot x_2^2\right) \right)
+\end{bmatrix}
+$$
+
+% Continue with other optimization problems...
+\subsection*{Three-dimensional box function (12)}
+\subsubsection*{Objective Function}
+$$f(x) = \| \exp(-t \cdot x[0]) - \exp(-t \cdot x[1]) - x[2] \cdot (\exp(-t) - \exp(-10 \cdot t)) \|
+$$
+\subsubsection{Optimization results}
+$$\frac{\partial f}{\partial x}\:=4x\left(x^2+y-11\right)+2\left(x+y^2-7\right)$$
+$$\frac{\partial f}{\partial y}\:=2\left(x^2+y-11\right)+4y\left(x+y^2-7\right)$$
+$$\frac{\partial f}{\partial z}\:=2z$$
+
+Optimal x: [1.00035547e+01 1.00035551e+01 2.03012288e-08]
+Minimum value of the function: 2.6852718877011665e-08
+iterations: 21
+x0=(10,10,10)
+known minimum is x1=x2 and x3=0
+$$\nabla f = \begin{bmatrix}
+- \sum_{i=1}^{10} t_i \cdot \exp(-t_i \cdot x[0]) \\
+\sum_{i=1}^{10} t_i \cdot \exp(-t_i \cdot x[1]) \\
+- \sum_{i=1}^{10} t_i \cdot (\exp(-t_i) - \exp(-10 \cdot t_i))
+\end{bmatrix}
+$$
+\subsection{Function of variable dimensions (25)}
+\subsubsection{Objective function}
+$$f(x) = \| [x_1 - 1, x_2 - 1, \ldots, x_n - 1, \sum_{i=1}^{n} i \cdot (x_i - 1), \left(\sum_{i=1}^{n} i \cdot (x_i - 1)\right)^2] \|^2$$
+
+\subsubsection{Optimization results}
+$$\nabla f = 2 \cdot \begin{bmatrix}
+x_1 - 1 \\
+x_2 - 1 \\
+\vdots \\
+x_n - 1 \\
+\sum_{i=1}^{n} i \cdot (x_i - 1) \\
+2 \cdot \sum_{i=1}^{n} i \cdot (x_i - 1) \cdot \sum_{i=1}^{n} i \cdot (x_i - 1) \\
+\end{bmatrix}
+$$
+Optimal x: [1.         1.00000003 1.00000001 1.00000001 0.99999997]
+Minimum value of the function: 4.4519732194048033e-08
+known minimum is (1,1,1....1)
+Iterations: 34
+
+\subsection{Watson function (20)}
+\subsubsection{Objective function}
+\[ f(x) = \| [a_1 - b_1, a_2 - b_2, \ldots, a_{29} - b_{29}, x_1, x_2 + x_1^2 - 1] \|
+
+ \]
+\subsubsection{Optimization results}
+$$\nabla f = \begin{bmatrix}
+\frac{\partial f}{\partial x_1} \\
+\frac{\partial f}{\partial x_2} \\
+\vdots \\
+\frac{\partial f}{\partial x_n}
+\end{bmatrix} =  \begin{bmatrix}
+\sum_{j=1}^{n} j \cdot \left(\frac{1}{29}\right)^{j-1} \cdot \left( j - 2 \cdot x_1 \cdot \left(\frac{1}{29}\right)^{j-1} \right) \\
+\sum_{j=1}^{n} j \cdot \left(\frac{1}{29}\right)^{j-1} \cdot \left( 2 \cdot x_2 + 2 \cdot j \cdot x_1 \cdot \left(\frac{1}{29}\right)^{j-1} \right) \\
+\vdots \\
+\sum_{j=1}^{n} j \cdot \left(\frac{1}{29}\right)^{j-1} \cdot \left( 2 \cdot x_n + 2 \cdot j \cdot x_{n-1} \cdot \left(\frac{1}{29}\right)^{j-1} \right)
+\end{bmatrix}
+
+$$
+
+$$H = \begin{bmatrix}
+\sum_{j=1}^{n} j \cdot \left(\frac{1}{29}\right)^{j-1} \cdot \left( j \cdot (j - 2) - 2 \cdot j \cdot x_1 \cdot \left(\frac{1}{29}\right)^{j-1} \right) & \sum_{j=1}^{n} j \cdot \left(\frac{1}{29}\right)^{j-1} \cdot \left( 2 \cdot j \cdot x_1 \cdot \left(\frac{1}{29}\right)^{j-1} \right) & \cdots & 0 \\
+\sum_{j=1}^{n} j \cdot \left(\frac{1}{29}\right)^{j-1} \cdot \left( 2 \cdot j \cdot x_1 \cdot \left(\frac{1}{29}\right)^{j-1} \right) & \sum_{j=1}^{n} j \cdot \left(\frac{1}{29}\right)^{j-1} \cdot \left( 2 \cdot j \cdot x_2 + 2 \cdot j \cdot x_1 \cdot \left(\frac{1}{29}\right)^{j-1} \right) & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & \sum_{j=1}^{n} j \cdot \left(\frac{1}{29}\right)^{j-1} \cdot \left( 2 \cdot j \cdot x_n + 2 \cdot j \cdot x_{n-1} \cdot \left(\frac{1}{29}\right)^{j-1} \right)
+\end{bmatrix}
+
+ 
+$$
+
+Optimal x: [-1.06312021e-08  9.97966220e-01  1.43529299e-02  3.16885350e-01
+ -3.19036044e-02  4.94903016e-02]
+Minimum value of the function: 0.006453858327920113
+
+array([-0.12562862, -0.0959441 , -0.01129189,  0.10207429,  0.        ])
+x0=(0,0,0,..,0,0)
+
+\subsection{Penalty function I (23)}
+\subsubsection{Objective function}
+$$f(x) = \| [a \cdot x_1 - 1, a \cdot x_2 - 1, \ldots, a \cdot x_n - 1, \left\| x \right\|^2 - \frac{1}{4}] \|^2
+$$
+\subsubsection{Optimization results}
+$$\nabla f = \begin{bmatrix}
+2 \cdot a \cdot \left( a \cdot x_1 - 1 \right) \\
+2 \cdot a \cdot \left( a \cdot x_2 - 1 \right) \\
+\vdots \\
+2 \cdot a \cdot \left( a \cdot x_n - 1 \right) \\
+4 \cdot x_1 \\
+4 \cdot x_2 \\
+\vdots \\
+4 \cdot x_n
+\end{bmatrix}
+$$
+$$\H = \begin{bmatrix}
+2 \cdot a^2 & 0 & \cdots & 0 & 4 & 0 & \cdots & 0 \\
+0 & 2 \cdot a^2 & \cdots & 0 & 0 & 4 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & 2 \cdot a^2 & 0 & 0 & \cdots & 4 \\
+4 & 0 & \cdots & 0 & 4 & 0 & \cdots & 0 \\
+0 & 4 & \cdots & 0 & 0 & 4 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & 4 & 0 & 0 & \cdots & 4
+\end{bmatrix}
+$$ 
+Optimal x: [-1.06312021e-08  9.97966220e-01  1.43529299e-02  3.16885350e-01
+ -3.19036044e-02  4.94903016e-02]
+Minimum value of the function: 0.006453858327920113
+x0=(1,2,3,4,5,6..n)
+
+\subsection{Penalty function II (24)}
+\subsubsection{Objective function}
+$$f(x) = \| [x_1 - 0.2, a^{0.5} \cdot (\exp(x_2/10) + \exp(x_1/10) - \exp((1/10, 2/10, \ldots, (n-1)/10)) + a^{0.5} \cdot (\exp(x_3/10) + \exp(x_2/10) - \exp((2/10, 3/10, \ldots, (n-1)/10)) + \ldots + a^{0.5} \cdot (\exp(x_{n-1}/10) - \exp((n-2)/10, (n-1)/10)) + a^{0.5} \cdot (\exp(x_n/10) - \exp((n-1)/10))] \|^2
+$$
+\subsubsection{Optimization results}
+$$\nabla f = \begin{bmatrix}
+1 \\
+2 \cdot a^{0.5} \cdot \left( \frac{\exp(x_2/10)}{10} + \frac{\exp(x_1/10)}{10} - \frac{\exp((1/10, 2/10, \ldots, (n-1)/10))}{10} \right) \\
+-2 \cdot a^{0.5} \cdot \frac{\exp((1/10, 2/10, \ldots, (n-1)/10))}{10} \\
+\vdots \\
+-2 \cdot a^{0.5} \cdot \frac{\exp((1/10, 2/10, \ldots, (n-1)/10))}{10} \\
+2 \cdot a^{0.5} \cdot \left( \frac{\exp(x_2/10)}{10} \right) \\
+2 \cdot a^{0.5} \cdot \left( \frac{\exp(x_3/10)}{10} \right) \\
+\vdots \\
+2 \cdot a^{0.5} \cdot \left( \frac{\exp(x_n/10)}{10} \right) \\
+2 \cdot \sum_{j=1}^{n} (n-j) \cdot x_j
+\end{bmatrix}
+$$
+
+$$H = \begin{bmatrix}
+0 & 0 & \cdots & 0 & 0 & 0 & \cdots & 0 \\
+0 & 2 \cdot a^{0.5} \cdot \left( \frac{\exp(x_2/10)}{10} + \frac{\exp(x_1/10)}{10} - \frac{\exp((1/10, 2/10, \ldots, (n-1)/10))}{10} \right) & -2 \cdot a^{0.5} \cdot \frac{\exp((1/10, 2/10, \ldots, (n-1)/10))}{10} & \cdots & -2 \cdot a^{0.5} \cdot \frac{\exp((1/10, 2/10, \ldots, (n-1)/10))}{10} & 0 & \cdots & 0 \\
+0 & -2 \cdot a^{0.5} \cdot \frac{\exp((1/10, 2/10, \ldos, (n-1)/10))}{10} & 4 \cdot a^{0.5} \cdot \left( \frac{\exp((2/10, 3/10, \ldots, (n-1)/10))}{10} \right) & \cdots & 0 & 0 & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & 0 & 2 \cdot a^{0.5} \cdot \left( \frac{\exp(x_2/10)}{10} \right) & 0 & \cdots & 0 \\
+0 & 0 & \cdots & 0 & 0 & 2 \cdot a^{0.5} \cdot \left( \frac{\exp(x_3/10)}{10} \right) & \cdots & 0 \\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & 0 & 
+$$
+
+Optimal x: [ 1.29876580e-01 -9.14309839e-05 -1.30541862e-04 -1.12734007e-04]
+Minimum value of the function: 0.10274773981114554
+Iterations: 45
+x0 was (0.5,0.5,0.5...0.5)
+
+
+
+
+
+\subsection{Poorly scaled brown function}
+\subsubsection{Objective function}
+$$f(x) = (x_1 - 1 \times 10^6)^2 + (x_2 - 2 \times 10^{-6})^2 + (x_1 \times x_2 - 2)^2
+$$
+\subsubsection{Optimization results}
+Optimal solution: [1.00000000e+06 1.99254942e-06]
+Optimal function value: 5.551114377728232e-05
+Iterations: 14
+x0=(1,1)
+ 
+$$\nabla f = \begin{bmatrix}
+2 \cdot (x_1 - 1 \times 10^6) + 2 \cdot (x_1 \times x_2 - 2) \cdot x_2 \\
+2 \cdot (x_2 - 2 \times 10^{-6}) + 2 \cdot (x_1 \times x_2 - 2) \cdot x_1
+\end{bmatrix}
+$$
+gradient is 0 therefore is a critical point and hessian it's negative there fore is a minimum
+
+\nabla f = \begin{bmatrix}
+2 \cdot (x_1 - 1 \times 10^6) + 2 \cdot (x_1 \times x_2 - 2) \cdot x_2 \\
+2 \cdot (x_2 - 2 \times 10^{-6}) + 2 \cdot (x_1 \times x_2 - 2) \cdot x_1
+\end{bmatrix}
+
+\subsection{Brown and Dennis function (16)}
+\subsubsection{Objective function}
+$$f(x) = \left\| \left[ x_1 + t \cdot x_2 - \exp(t), x_3 + x_4 \cdot \sin(t) - \sin(t) \right] \right\|^2
+$$
+\subsubsection{Optimization results}
+$$\nabla f = \begin{bmatrix}
+2 \cdot \sum_{i=1}^{m} \left( x_1 + t_i \cdot x_2 - \exp(t_i) \right) \\
+2 \cdot \sum_{i=1}^{m} \left( x_2 \cdot t_i \cdot \left( x_1 + t_i \cdot x_2 - \exp(t_i) \right) \right) \\
+2 \cdot \sum_{i=1}^{m} \left( x_3 + x_4 \cdot \sin(t_i) - \sin(t_i) \right) \\
+2 \cdot \sum_{i=1}^{m} \left( x_4 \cdot \sin(t_i) \cdot \left( x_3 + x_4 \cdot \sin(t_i) - \sin(t_i) \right) \right)
+\end{bmatrix}
+$$
+
+$$
+H = \begin{bmatrix}
+2 \cdot m & 2 \cdot \sum_{i=1}^{m} t_i \cdot \left( x_1 + t_i \cdot x_2 - \exp(t_i) \right) & 0 & 0 \\
+2 \cdot \sum_{i=1}^{m} t_i \cdot \left( x_1 + t_i \cdot x_2 - \exp(t_i) \right) & 2 \cdot \sum_{i=1}^{m} t_i^2 \cdot \left( x_1 + t_i \cdot x_2 - \exp(t_i) \right) & 0 & 0 \\
+0 & 0 & 2 \cdot m & 2 \cdot \sum_{i=1}^{m} \sin(t_i) \cdot \left( x_3 + x_4 \cdot \sin(t_i) - \sin(t_i) \right) \\
+0 & 0 & 2 \cdot \sum_{i=1}^{m} \sin(t_i) \cdot \left( x_3 + x_4 \cdot \sin(t_i) - \sin(t_i) \right) & 2 \cdot \sum_{i=1}^{m} \sin(t_i)^2 \cdot \left( x_3 + x_4 \cdot \sin(t_i) - \sin(t_i) \right)
+\end{bmatrix}
+$$
+The value of the Brown and Dennis Function is: 3164.844373227912
+Optimal solution: [ 8.57730812e-01  1.74632931e+00 -1.87750974e-08  1.00000002e+00]
+Optimal function value: 0.02484595290177809
+Iterations: 15
+x0:(25,5,-5,-1)
+\subsection{Gulf Research and Development Function (11)}
+\subsubsection{Objective function}
+$$f(x) = \left\| \exp\left(-\frac{\left| y \cdot 100 \cdot t \cdot m \cdot x_1 \right|^{x_2}}{x_0}\right) - t \right\|^2
+$$
+\subsubsection{Optimization results}
+ $$\nabla f = 2 \cdot \begin{bmatrix}
+\sum_{i=1}^{m} \frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|^{x_2}}{x_0^2} \cdot \exp\left(-\frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|^{x_2}}{x_0}\right) \cdot \text{sign}(x_1) \cdot x_2 \cdot t_i \\
+-2 \cdot \sum_{i=1}^{m} \exp\left(-\frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|^{x_2}}{x_0}\right) \cdot t_i \\
+-2 \cdot \sum_{i=1}^{m} \frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|^{x_2}}{x_0^2} \cdot \exp\left(-\frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|^{x_2}}{x_0}\right) \cdot x_2 \cdot \log\left(\frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|}{x_0}\right)
+\end{bmatrix}
+$$
+ $$H = 2 \cdot \begin{bmatrix}
+\sum_{i=1}^{m} \frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|^{x_2}}{x_0^2} \cdot \exp\left(-\frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|^{x_2}}{x_0}\right) \cdot \text{sign}(x_1) \cdot x_2 \cdot t_i & -2 \cdot \sum_{i=1}^{m} \exp\left(-\frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|^{x_2}}{x_0}\right) \cdot t_i & -2 \cdot \sum_{i=1}^{m} \frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|^{x_2}}{x_0^2} \cdot \exp\left(-\frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|^{x_2}}{x_0}\right) \cdot x_2 \cdot \log\left(\frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|}{x_0}\right) \\
+-2 \cdot \sum_{i=1}^{m} \exp\left(-\frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|^{x_2}}{x_0}\right) \cdot t_i & 2 \cdot \sum_{i=1}^{m} \exp\left(-\frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|^{x_2}}{x_0}\right) & 0 \\
+-2 \cdot \sum_{i=1}^{m} \frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|^{x_2}}{x_0^2} \cdot \exp\left(-\frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|^{x_2}}{x_0}\right) \cdot x_2 \cdot \log\left(\frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|}{x_0}\right) & 0 & 2 \cdot \sum_{i=1}^{m} \frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|^{x_2}}{x_0^2} \cdot \exp\left(-\frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|^{x_2}}{x_0}\right) \cdot x_2 \cdot \left( \log\left(\frac{\left| y \cdot 100 \cdot t_i \cdot m \cdot x_1 \right|}{x_0}\right) \right)^2
+\end{bmatrix}
+$$
+
+Optimal solution: [ 0.35189333 -0.00093731  0.05808836]
+Optimal function value: 0.02500939024137528
+iterations: 30
+x0:(5,2.5,0.15)
+known minimum : (50,25,1.5)
+\subsection{Trigonometric function (26)}
+\subsubsection{Objective function}
+$$f(x) = \| [n - \sum_{i=1}^{n} \cos(x_i) + (i+1) \cdot (1 - \cos(x_i)) - \sin(x_i)] \|^{2}
+$$
+\subsubsection{Optimization results}
+The value of the Trigonometric Function is: 0.04020653651318907
+Optimal solution: [0.0111489  0.01120458 0.01126135 0.01131928 0.01137824 0.01143831
+ 0.01149956 0.01156204 0.01162575 0.01169072 0.01175705 0.01182461
+ 0.01189374 0.12120813 0.01203734 0.01211072 0.01218557 0.01226209
+ 0.01234019 0.01241998 0.01250148 0.01258473 0.01266968 0.01275643
+ 0.01284496 0.01293526 0.01302731 0.01312108 0.0132165  0.01331349
+ 0.01341191 0.01351158 0.01361224 0.01371366 0.0138154  0.01391702
+ 0.01401788 0.0141173  0.0142144  0.01430813 0.01439733 0.01448069
+ 0.01455677 0.01462408 0.01468112 0.01472646 0.0147591  0.01477773
+ 0.01478183 0.01477641]
+Optimal function value: 0.00992757965222554
+Iterations: 9 
+$$\nabla f = 2 \cdot \begin{bmatrix}
+\sum_{i=1}^{n} \sin(x_i) + \sum_{i=1}^{n} (i+1) \cdot \sin(x_i) \\
+-\sin(x_1) \\
+-\sin(x_2) \\
+\vdots \\
+-\sin(x_n)
+\end{bmatrix}
+$$
+$$H = 2 \cdot \begin{bmatrix}
+\sum_{i=1}^{n} \cos(x_i) + \sum_{i=1}^{n} (i+1) \cdot \cos(x_i) & \sin(x_1) & \sin(x_2) & \cdots & \sin(x_n) \\
+\sin(x_1) & \cos(x_1) + 2 \cdot \sin(x_1) & 0 & \cdots & 0 \\
+\sin(x_2) & 0 & \cos(x_2) + 3 \cdot \sin(x_2) & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+\sin(x_n) & 0 & 0 & \cdots & \cos(x_n) + n \cdot \sin(x_n)
+\end{bmatrix}
+$$
+
+\subsection{ Expanded Rosenbrock function (21)}
+\subsubsection{Objective function}
+$$f(x) = \sum_{i=1}^{n-1} \left[ 100 \cdot (x_{i+1} - x_i^2)^2 + (1 - x_i)^2 \right]
+$$
+\subsubsection{Optimization results}
+$$ \nabla f = \begin{bmatrix}
+-400 \cdot x_1 \cdot (x_2 - x_1^2) - 2 \cdot (1 - x_1) \\
+200 \cdot (x_2 - x_1^2) - 400 \cdot x_2 \cdot (x_3 - x_2^2) - 2 \cdot (1 - x_2) \\
+\vdots \\
+200 \cdot (x_{n-1} - x_{n-2}^2) - 400 \cdot x_{n-1} \cdot (x_n - x_{n-1}^2) - 2 \cdot (1 - x_{n-1}) \\
+200 \cdot (x_n - x_{n-1}^2)
+\end{bmatrix}
+ $$
+$$H = \begin{bmatrix}
+1200 \cdot x_1^2 - 400 \cdot x_2 + 2 & -400 \cdot x_1 & 0 & \cdots & 0 \\
+-400 \cdot x_1 & 1200 \cdot x_2^2 - 400 \cdot x_3 + 2 & -400 \cdot x_2 & \cdots & 0 \\
+0 & -400 \cdot x_2 & \ddots & \ddots & 0 \\
+\vdots & \vdots & \ddots & \ddots & -400 \cdot x_{n-1} \\
+0 & 0 & \cdots & -400 \cdot x_{n-1} & 200
+\end{bmatrix}
+$$
+
+The value of the Extended Rosenbrock Function is: 0
+Optimal solution: [1. 1. 1.]
+Optimal function value: 0.0
+iterations: 1
+$$ x0=(-1.2,1,-1.2,1,-1.2....)$$
+\subsection{Extended Powell singular function (22)}
+
+\subsubsection{Objective function}
+$$f(\mathbf{x}) = \sum_{i=0}^{n/4-1} \left[ (x_{4i} + 10x_{4i+1})^2 + 5(x_{4i+2} - x_{4i+3})^2 + (x_{4i+1} - 2x_{4i+2})^4 + 10(x_{4i} - x_{4i+3})^4 \right]$$
+
+\subsubsection{Optimization results}
+$$
+\frac{\partial f}{\partial x_{4i}} = 2 \left[(x_{4i} + 10x_{4i+1}) + 40(x_{4i} - x_{4i+3})^3\right]
+$$
+
+$$
+\frac{\partial f}{\partial x_{4i+1}} = 20 \left[(x_{4i} + 10x_{4i+1}) + 4(x_{4i+1} - 2x_{4i+2})^3\right]
+$$
+
+$$
+\frac{\partial f}{\partial x_{4i+2}} = 10 \left[5(x_{4i+2} - x_{4i+3}) - 8(x_{4i+1} - 2x_{4i+2})^3\right]
+$$
+
+$$
+\frac{\partial f}{\partial x_{4i+3}} = -10 \left[5(x_{4i+2} - x_{4i+3}) + 40(x_{4i} - x_{4i+3})^3\right]
+$$
+
+$$
+\frac{\partial^2 f}{\partial x_{4i}^2} = 2 + 120 \cdot (x_{4i} - x_{4i+3})^2
+$$
+
+$$
+\frac{\partial^2 f}{\partial x_{4i} \partial x_{4i+1}} = 20
+$$
+
+$$
+\frac{\partial^2 f}{\partial x_{4i} \partial x_{4i+2}} = 0
+$$
+
+$$
+\frac{\partial^2 f}{\partial x_{4i} \partial x_{4i+3}} = -120 \cdot (x_{4i} - x_{4i+3})^2
+$$
+
+$$
+\frac{\partial^2 f}{\partial x_{4i+1}^2} = 200 + 12 \cdot (x_{4i+1} - 2x_{4i+2})^2
+$$
+
+$$
+\frac{\partial^2 f}{\partial x_{4i+1} \partial x_{4i+2}} = -24 \cdot (x_{4i+1} - 2x_{4i+2})^2
+$$
+
+$$
+\frac{\partial^2 f}{\partial x_{4i+1} \partial x_{4i+3}} = 0
+$$
+
+$$
+\frac{\partial^2 f}{\partial x_{4i+2}^2} = 10 - 192 \cdot (x_{4i+1} - 2x_{4i+2})^2
+$$
+
+$$
+\frac{\partial^2 f}{\partial x_{4i+2} \partial x_{4i+3}} = -20
+$$
+
+$$
+\frac{\partial^2 f}{\partial x_{4i+3}^2} = 120 + 120 \cdot (x_{4i} - x_{4i+3})^2
+$$
+
+Optimal solution: [-0.00310417  0.00156839 -0.00015684 -0.0031042 ]
+Optimal function value: 6.1078478163066054e-09
+\subsection{Beale function (5)}
+\subsubsection{Objective function}
+$$f(x, y) = (1.5 - x + xy)^2 + (2.25 - x + xy^2)^2 + (2.625 - x + xy^3)^2$$
+\subsubsection{Optimization results}
+
+$$ \frac{\partial f}{\partial x} = 2 \left[ (1.5 - x + xy)(-1 + y) + (2.25 - x + xy^2)(-1 + y^2) + (2.625 - x + xy^3)(-1 + y^3) \right] $$
+
+$$ \frac{\partial f}{\partial y} = 2 \left[ (1.5 - x + xy)x + 2(2.25 - x + xy^2)xy + 3(2.625 - x + xy^3)xy^2 \right] $$
+Optimal solution: [2.99999967 0.49999991]
+Optimal function value: 1.9911045053339106e-14
+gradient is 0 and hessian is positive therefore is minimum
+
+
+$$
+ \frac{\partial^2 f}{\partial x^2} = 2 \left[ (1 - y) + 2(1 - y^2) + 3(1 - y^3) \right]
+$$
+
+$$
+ \frac{\partial^2 f}{\partial y^2} = 2 \left[ x^2 + 2x^2 + 6x^2y + 6x^2y^2 \right] 
+ $$
+ $$
+ \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x} = 2 \left[ -1 + 2xy + 3xy^2 \right] $$
+ \subsection{Wood function (14)}
+ \subsubsection{Objective function}
+ $$f(x) = 100 \cdot (x_2 - x_1^2)^2 + (1 - x_1)^2 + 90 \cdot (x_4 - x_3^2)^2 + (1 - x_3)^2 + 10 \cdot (x_2 + x_4 - 2)^2 + \frac{1}{10} \cdot (x_2 - x_4)^2$$
+ \subsubsection{Optimization results}
+ $$
+\nabla f(x) = \left[ -400 \cdot x_1 \cdot (x_2 - x_1^2) - 2 \cdot (1 - x_1), \, 200 \cdot (x_2 - x_1^2) + 20 \cdot (x_2 + x_4 - 2) + 0.2 \cdot (x_2 - x_4), \, -360 \cdot x_3 \cdot (x_4 - x_3^2) - 2 \cdot (1 - x_3), \, 180 \cdot (x_4 - x_3^2) + 20 \cdot (x_2 + x_4 - 2) - 0.2 \cdot (x_2 - x_4) \right]
+$$
+Optimal solution: [0.99999968 0.99999938 1.00000019 1.0000004 ]
+Optimal function value: 7.954383299019438e-13
+optimal is x=(1,1,1,1)
+and gradient is 0 and hessian is positivetherefore is a minimum
+
+
+\subsection{chebyquad function}
+ \subsubsection{Objective function}
+$$f(x) = \| T_{n-1}(x) \|
+$$
+ \subsubsection{Optimization results}
+$$ \nabla f(x) = \frac{2}{n} \sum_{k=0}^{n-1} \left[ k \cdot U_{k-1}(x) \cdot T_k(x) \right]$$
+
+$$H_{ij}(x) = \frac{2}{n} \sum_{k=0}^{n-1} \left[ U_{k-1}(x) \cdot U_{k-1}(x) \cdot \delta_{ij} - k \cdot U_{k-2}(x) \cdot U_{k-1}(x) \right]$$
+Optimal solution: [-1.29537067e-08  1.66052438e-09  4.33883736e-01  4.33883738e-01
+  4.33883739e-01  7.81831475e-01  7.81831480e-01  7.81831479e-01]
+Optimal function value: 1.3846731514262084e-07
+Iterations: 64
+
+\section*{Conclusion}
+
+Helical Valley Function (7):
+
+Optimal solution: [1. 0. 0.]
+Optimal function value: 0.0
+Iterations: 2
+
+
+Conclusion: The function is essentially at its global minimum, indicating successful optimization.
+Biggs EXP6 Function (18):
+
+Optimal solution: [1. 2. 1. 1. 1. 1.]
+Optimal function value: 4.248354237778568e-18
+Iterarions: 0
+Conclusion: The optimization has converged but not known minimum value
+Gaussian Function (9):
+
+The value of the Gaussian function is: 0.10207049569085339
+Optimal x: [0.52388083 0.7058404  0.48088152]
+Minimum value of the function: 0.0014489424560909297
+Iterations: 11
+Converged to minimum known value
+Three-dimensional Box Function (12):
+
+Optimal x: [1.00035547e+01 1.00035551e+01 2.03012288e-08]
+Minimum value of the function: 2.6852718877011665e-08
+iterations: 21
+Converged to a minimum value function
+
+Function of Variable Dimensions (25):
+
+Optimal x: [1.         1.00000003 1.00000001 1.00000001 0.99999997]
+Minimum value of the function: 4.4519732194048033e-08
+Iterations: 34
+Conclusion: The function has been minimized, and the Hessian matrix confirms it is a minimum.
+
+
+Watson Function (20):
+
+Optimal x: [-1.06312021e-08  9.97966220e-01  1.43529299e-02  3.16885350e-01
+ -3.19036044e-02  4.94903016e-02]
+Minimum value of the function: 0.006453858327920113
+Conclusion: The optimization result is close tto the optimum 
+
+Penalty Function I (23):
+
+Optimal x: [0.16000229 0.1580955  0.15681293 0.15673907 0.1580507  0.15754714
+ 0.16227176 0.15465012 0.15931135 0.1585308 ]
+Minimum value of the function: 9.999683699006326
+Conclusion: The optimization, but the gradient is not zero, suggesting a potential issue.
+
+Penalty Function II (24):
+Optimal x: [ 1.29875272e-01 -8.82752006e-05 -1.27193508e-04 -1.10731286e-04]
+Minimum value of the function: 0.010557098048339484
+Iterations: 49
+got closer to 0 the optimum could be 0
+
+
+Poorly Scaled Brown Function:
+
+Optimal Solution: [1.95848211e-06, 1.79366035e-06, 1.45346821e-06, -3.39815933e-07, 2.01403015e-06]
+Minimum Function Value: 1.8782493991793412e-11
+Conclusion: The gradient is zero, indicating a minimum.
+Brown and Dennis Function (16):
+
+Optimal solution: [1.00000000e+06 1.99254942e-06]
+Optimal function value: 5.551114377728232e-05
+Iterations: 14
+Conclusion: The optimization result is totaly satisfactory.
+
+Brown and Dennis:
+The value of the Brown and Dennis Function is: 10016239.906752376
+Optimal solution: [ 8.57717122e-01  1.74634067e+00 -1.11331063e-06  1.00000904e+00]
+Optimal function value: 0.0006173214141067991
+Iterations: 96
+
+
+Gulf Research and Development Function (11):
+
+Optimal solution: [ 0.48491083 -0.10046213  0.06349683]
+Optimal function value: 0.0006379152333885442
+iterations: 10
+Conclusion: The function has not been successfully minimized.
+Trigonometric Function (26):
+
+The value of the Trigonometric Function is: 0.0016165655783864058
+Optimal solution: [0.01251834 0.01257993 0.01264239 0.01270579 0.01277008 0.01283552
+ 0.01290166 0.01296882 0.01303694 0.013106   0.13091753 0.01324647
+ 0.01331832 0.01339097 0.01346427 0.01353838 0.01361314 0.01368852
+ 0.0137644  0.0138406  0.01391711 0.0139937  0.01407035 0.01414638
+ 0.01422194 0.0142966  0.0143701  0.01444191 0.01451183 0.0145791
+ 0.01464336 0.01470398 0.01476035 0.01481178 0.0148576  0.01489709
+ 0.01492956 0.01495432 0.01497081 0.01497829 0.01497658 0.01496519
+ 0.01494407 0.01491295 0.01487208 0.01482166 0.01476205 0.01469371
+ 0.01461719 0.01453758]
+Optimal function value: 0.0007811001559582129
+Iterations: 6
+it seems hot the minimum
+Expanded Rosenbrock Function (21):
+
+Optimal Solution: [1. 1. 1.]
+Minimum Function Value: 0.0
+Conclusion: The Rosenbrock function has been successfully minimized, and the Hessian is positive, confirming it as a minimum.
+Extended Powell Singular Function (22):
+
+Optimal Solution: [-0.00310417, 0.00156839, -0.00015684, -0.0031042]
+Minimum Function Value: 6.1078478163066054e-09
+Conclusion: The function has been successfully minimized, and the optimal solution has been found.
+Beale Function (5):
+
+Optimal Solution: [2.99999967, 0.49999991]
+Minimum Function Value: 1.9911045053339106e-14
+Conclusion: The function has been minimized, and the gradient is zero, indicating a minimum.
+Wood Function (14):
+
+Optimal Solution: [0.99999968, 0.99999938, 1.00000019, 1.0000004]
+Minimum Function Value: 7.954383299019438e-13
+Conclusion: The Wood function has been successfully minimized, and the Hessian is positive, confirming it as a minimum.
+
+
+Chebyquad Function
+Optimal solution: [-1.29537067e-08  1.66052438e-09  4.33883736e-01  4.33883738e-01
+  4.33883739e-01  7.81831475e-01  7.81831480e-01  7.81831479e-01]
+Optimal function value: 1.3846731514262084e-07
+Iterations: 64
+the minimum is closer origin
+
+\end{document}
