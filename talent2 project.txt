@@ -1,0 +1,6 @@
+https://talent2.ai/
+In the development of the backend infrastructure for the talent2.ai platform, I was extensively involved in leveraging Django's REST framework. My contributions spanned various components, encompassing API development, database management, authentication mechanisms, and ensuring seamless integration of features.
+
+Moreover, I spearheaded the implementation of the search engine functionality across the platform. This entailed architecting efficient search algorithms, optimizing indexing processes, and fine-tuning search performance to meet the platform's requirements effectively.
+
+Throughout these endeavors, I remained dedicated to adhering to best practices in software engineering, including code maintainability, scalability, and robustness, while consistently striving to enhance the platform's functionality and user experience.
